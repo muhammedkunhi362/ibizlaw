@@ -23,6 +23,17 @@ const config: Config = {
                 },
                 background: "#1A1A1A",
                 foreground: "#FFFFFF",
+                // Admin dashboard colors
+                admin: {
+                    bg: "#0F1117",
+                    surface: "#1A1D27",
+                    "surface-hover": "#22252F",
+                    border: "#2A2D37",
+                    "border-light": "#363942",
+                    muted: "#8B8FA3",
+                    accent: "#8C764D",
+                    "accent-hover": "#A08A5E",
+                },
             },
             fontFamily: {
                 serif: ["var(--font-serif)", "serif"],
@@ -33,6 +44,8 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require("@tailwindcss/forms"),
+    ],
 };
 export default config;
