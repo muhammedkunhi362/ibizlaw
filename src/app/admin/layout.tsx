@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import AuthProvider from '@/components/admin/AuthProvider';
-import Sidebar from '@/components/admin/Sidebar';
+import AdminLayoutContent from '@/components/admin/AdminLayoutContent';
 import ToastContainer from '@/components/admin/Toast';
 
 export const metadata: Metadata = {
@@ -15,12 +15,9 @@ export default function AdminLayout({
 }) {
     return (
         <AuthProvider>
-            <div className="flex min-h-screen bg-admin-bg text-white">
-                <Sidebar />
-                <main className="flex-1 overflow-auto">
-                    <div className="p-6 lg:p-8">{children}</div>
-                </main>
-            </div>
+            <AdminLayoutContent>
+                {children}
+            </AdminLayoutContent>
             <ToastContainer />
         </AuthProvider>
     );

@@ -94,7 +94,7 @@ export default function CasesPage() {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-white">Cases</h1>
                     <p className="text-admin-muted text-sm mt-1">
@@ -103,7 +103,7 @@ export default function CasesPage() {
                 </div>
                 <Link
                     href="/admin/cases/new"
-                    className="flex items-center gap-2 bg-gradient-to-r from-accent to-admin-accent-hover text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-all shadow-lg shadow-accent/10"
+                    className="flex items-center justify-center sm:justify-start gap-2 bg-gradient-to-r from-accent to-admin-accent-hover text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-all shadow-lg shadow-accent/10 sm:w-auto w-full"
                 >
                     <Plus className="w-4 h-4" />
                     New Case

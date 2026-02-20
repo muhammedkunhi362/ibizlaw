@@ -21,10 +21,10 @@ export default function StatsCard({
         <div
             className={`bg-admin-surface border border-admin-border rounded-xl p-5 hover:border-admin-border-light transition-all duration-200 ${className}`}
         >
-            <div className="flex items-start justify-between">
-                <div>
-                    <p className="text-sm text-admin-muted font-medium">{title}</p>
-                    <p className="text-2xl font-bold text-white mt-1">{value}</p>
+            <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                    <p className="text-sm text-admin-muted font-medium truncate">{title}</p>
+                    <p className="text-2xl font-bold text-white mt-1 truncate">{value}</p>
                     {trend && (
                         <p
                             className={`text-xs mt-2 ${trendUp ? 'text-emerald-400' : 'text-red-400'
@@ -34,7 +34,7 @@ export default function StatsCard({
                         </p>
                     )}
                 </div>
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-5 h-5 text-accent" />
                 </div>
             </div>
