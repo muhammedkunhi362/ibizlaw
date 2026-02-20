@@ -22,6 +22,15 @@ module.exports = {
                 },
                 background: "#1A1A1A",
                 foreground: "#FFFFFF",
+                admin: {
+                    bg: "#121212",
+                    surface: "#1E1E1E",
+                    "surface-hover": "#2A2A2A",
+                    border: "#333333",
+                    "border-light": "#444444",
+                    muted: "#9CA3AF",
+                    "accent-hover": "#A08A5E",
+                },
             },
             fontFamily: {
                 serif: ["var(--font-serif)", "serif"],

@@ -41,11 +41,10 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
         <>
             <aside
                 className={`
-                    fixed inset-y-0 left-0 z-50 bg-admin-surface border-r border-admin-border flex flex-col transition-all duration-300 ease-in-out
-                    lg:static lg:translate-x-0 lg:h-screen
+                    w-64 fixed inset-y-0 left-0 z-50 bg-admin-surface border-r border-admin-border flex flex-col transition-transform duration-300 ease-in-out
+                    lg:static lg:translate-x-0 lg:h-screen lg:inset-auto lg:z-auto
                     ${isOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
                     ${collapsed ? 'lg:w-[72px]' : 'lg:w-64'}
-                    w-64
                 `}
             >
                 {/* Logo */}

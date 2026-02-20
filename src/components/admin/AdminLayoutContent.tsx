@@ -22,12 +22,6 @@ export default function AdminLayoutContent({
                 {/* Mobile Header */}
                 <div className="lg:hidden flex items-center justify-between p-4 border-b border-admin-border bg-admin-surface">
                     <div className="flex items-center gap-3">
-                        <button
-                            onClick={() => setSidebarOpen(true)}
-                            className="p-2 -ml-2 rounded-lg text-admin-muted hover:text-white hover:bg-admin-surface-hover transition-colors"
-                        >
-                            <Menu className="w-6 h-6" />
-                        </button>
                         <span className="font-bold text-white">iBizLaw Admin</span>
                     </div>
                 </div>
