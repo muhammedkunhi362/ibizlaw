@@ -13,28 +13,36 @@ export const authOptions: NextAuthOptions = {
             },
             async authorize(credentials) {
                 if (!credentials?.email || !credentials?.password) {
-                    throw new Error('Email and password are required');
+                    console.error('Auth Debug: Missing credentials');
+                    return null;
                 }
 
-                const admin = await prisma.admin.findUnique({
-                    where: { email: credentials.email },
-                });
+                try {
+                    const admin = await prisma.admin.findUnique({
+                        where: { email: credentials.email },
+                    });
 
-                if (!admin) {
-                    throw new Error('Invalid email or password');
+                    if (!admin) {
+                        console.error(`Auth Debug: User not found for email: ${credentials.email}`);
+                        return null;
+                    }
+
+                    const isPasswordValid = await compare(credentials.password, admin.passwordHash);
+
+                    if (!isPasswordValid) {
+                        console.error(`Auth Debug: Invalid password for email: ${credentials.email}`);
+                        return null;
+                    }
+
+                    return {
+                        id: admin.id,
+                        email: admin.email,
+                        name: admin.name,
+                    };
+                } catch (error) {
+                    console.error('Auth Debug: Database/Auth error:', error);
+                    return null;
                 }
-
-                const isPasswordValid = await compare(credentials.password, admin.passwordHash);
-
-                if (!isPasswordValid) {
-                    throw new Error('Invalid email or password');
-                }
-
-                return {
-                    id: admin.id,
-                    email: admin.email,
-                    name: admin.name,
-                };
             },
         }),
     ],
